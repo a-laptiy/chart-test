@@ -1,4 +1,9 @@
-#myChart {
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.chart-wrapper {
   background-color: #051B2C;
   padding: 40px;
 }
