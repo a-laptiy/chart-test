@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Шаблон страницы HTML5</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body>
+  <div style="max-width: 1000px;">
+    <canvas id="myChart"></canvas>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+  <script>
+    var ctx = document.getElementById('myChart').getContext('2d');
+
+    var lineChartData = {
+			labels: ['2009/10', '2010/11', '2011/12', '2012/13', '2013/14', '2014/15', '2015/16', '2016/17', '2017/18', '2018/19', '2019/20'],
+			datasets: [{
+				label: 'Во всех турнирах',
+				borderColor: 'rgb(57, 74, 225)',
+				backgroundColor: 'rgb(57, 74, 225)',
+				fill: false,
+				data: [
+          '41.8',
+          '56.1',
+          '52.8',
+          '50',
+          '47.1',
+          '47.12',
+          '52',
+          '49',
+          '35.8',
+          '42.9',
+          '41.3'
+				]
+			}, {
+				label: 'В Ла Лиге',
+				borderColor: 'rgb(196, 196, 196)',
+				backgroundColor: 'rgb(196, 196, 196)',
+				fill: false,
+				data: [
+          '41.8',
+          '56.1',
+          '52.8',
+          '50',
+          '47.1',
+          '47.12',
+          '52',
+          '49',
+          '35.8',
+          '42.9',
+          '41.3'
+				]
+			}]
+		};
+
+    var myChart = new Chart(ctx, {
+      type: 'line',
+      data: lineChartData,
+
+      options: {
+        responsive: true,
+        hoverMode: 'index',
+        stacked: false,
+        title: {
+          display: true,
+          text: 'Точность ударов Бензема',
+          fontSize: '24',
+          fontColor: '#ffffff'
+        },
+        legend: {
+          display: true,
+          position: 'top',
+          align: 'end',
+          labels: {
+            fontColor: '#ffffff'
+          }
+        },
+        scales: {
+          yAxes: [{
+            type: 'linear',
+            display: true,
+            ticks: {
+              fontColor: '#ffffff',
+              fontSize: 14,
+              stepSize: 2,
+							suggestedMin: 24,
+							suggestedMax: 64,
+            },
+            gridLines: {
+              color: '#394AE1',
+              lineWidth: 0.3
+            },
+          }],
+          xAxes: [{
+            ticks: {
+              fontColor: '#ffffff',
+              fontSize: 10
+            },
+            gridLines: {
+              color: '#394AE1',
+              lineWidth: 0.3
+            },
+          }],
+        }
+      }
+    });
+  </script>
+</body>
+</html>
